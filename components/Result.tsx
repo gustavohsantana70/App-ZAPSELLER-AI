@@ -20,14 +20,14 @@ const WhatsAppBubble: React.FC<{ content: string; label: string }> = ({ content,
 
   return (
     <div className="flex flex-col mb-4 items-start max-w-[95%]">
-      <span className="text-[10px] uppercase font-bold text-gray-400 ml-3 mb-1">{label}</span>
-      <div className="relative group bg-white p-3 rounded-2xl rounded-tl-none border border-gray-100 shadow-sm w-full">
-        <p className="text-gray-800 text-sm whitespace-pre-wrap leading-relaxed">{content}</p>
+      <span className="text-[10px] uppercase font-bold text-[#16A34A] ml-3 mb-1 tracking-widest">{label}</span>
+      <div className="relative group bg-white p-3 rounded-2xl rounded-tl-none border border-[#E5E7EB] shadow-sm w-full">
+        <p className="text-[#111827] text-sm whitespace-pre-wrap leading-relaxed">{content}</p>
         <div className="flex justify-end mt-2">
           <button
             onClick={handleCopy}
             className={`flex items-center space-x-1 px-2 py-1 rounded-md text-[10px] font-bold transition-all ${
-              copied ? 'bg-green-100 text-green-700' : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+              copied ? 'bg-[#DCFCE7] text-[#15803D]' : 'bg-[#F9FAFB] text-[#16A34A] border border-[#E5E7EB] hover:bg-[#DCFCE7]'
             }`}
           >
             {copied ? (
@@ -47,24 +47,24 @@ const Result: React.FC<ResultProps> = ({ script, onReset, onGenerateVariant, isG
     <div className="max-w-2xl mx-auto pb-16 space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Atendimento Otimizado</h2>
+          <h2 className="text-xl font-bold text-[#111827]">Atendimento Otimizado</h2>
           <div className="flex items-center space-x-2 mt-1">
-             <span className="text-[10px] font-bold bg-green-100 text-green-700 px-2 py-0.5 rounded-full uppercase tracking-tighter">
+             <span className="text-[10px] font-bold bg-[#DCFCE7] text-[#15803D] px-2 py-0.5 rounded-full uppercase tracking-tighter border border-[#DCFCE7]">
                Conversão: {script.qualityIndicator}
              </span>
           </div>
         </div>
-        <button onClick={onReset} className="text-blue-600 text-sm font-bold hover:underline">Novo</button>
+        <button onClick={onReset} className="text-[#16A34A] text-sm font-bold hover:underline transition-all">Novo</button>
       </div>
 
       {/* Variações */}
-      <div className="bg-gray-100 p-1 rounded-xl flex">
+      <div className="bg-[#E5E7EB]/50 p-1 rounded-xl flex border border-[#E5E7EB]">
         {(['short', 'direct', 'persuasive'] as ScriptVariant[]).map((v) => (
           <button
             key={v}
             disabled={isGeneratingVariant}
             onClick={() => onGenerateVariant?.(v)}
-            className="flex-1 py-2 text-[10px] font-bold uppercase rounded-lg transition-all hover:bg-white/50 active:bg-white"
+            className="flex-1 py-2 text-[10px] font-bold uppercase rounded-lg transition-all hover:bg-white/50 active:bg-white text-[#6B7280] hover:text-[#111827]"
           >
             {v === 'short' ? 'Curto' : v === 'direct' ? 'Direto' : 'Persuasivo'}
           </button>
@@ -72,12 +72,12 @@ const Result: React.FC<ResultProps> = ({ script, onReset, onGenerateVariant, isG
       </div>
 
       {/* Chat Simulado */}
-      <div className="bg-[#e5ddd5] p-4 sm:p-6 rounded-3xl border border-gray-200 min-h-[500px] shadow-inner relative overflow-hidden">
+      <div className="bg-[#e5ddd5] p-4 sm:p-6 rounded-3xl border border-[#E5E7EB] min-h-[500px] shadow-inner relative overflow-hidden">
         {isGeneratingVariant && (
           <div className="absolute inset-0 bg-white/40 backdrop-blur-sm z-10 flex items-center justify-center">
-            <div className="bg-white p-4 rounded-2xl shadow-xl flex items-center space-x-3">
-               <div className="animate-spin h-4 w-4 border-2 border-blue-600 border-t-transparent rounded-full"></div>
-               <span className="text-xs font-bold text-gray-700 uppercase">Ajustando tom...</span>
+            <div className="bg-white p-4 rounded-2xl shadow-lg flex items-center space-x-3 border border-[#E5E7EB]">
+               <div className="animate-spin h-4 w-4 border-2 border-[#16A34A] border-t-transparent rounded-full"></div>
+               <span className="text-xs font-bold text-[#111827] uppercase tracking-wide">Ajustando tom...</span>
             </div>
           </div>
         )}
@@ -89,16 +89,16 @@ const Result: React.FC<ResultProps> = ({ script, onReset, onGenerateVariant, isG
       </div>
 
       {/* Checklist de Fechamento */}
-      <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
-        <h3 className="text-sm font-bold text-gray-900 mb-4 flex items-center">
-          <svg className="w-4 h-4 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <div className="bg-white p-6 rounded-2xl border border-[#E5E7EB] shadow-sm">
+        <h3 className="text-sm font-bold text-[#111827] mb-4 flex items-center">
+          <svg className="w-4 h-4 mr-2 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           Checklist de Fechamento
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {script.checklist.map((item, idx) => (
-            <div key={idx} className="flex items-center space-x-3 text-xs text-gray-600 p-2 bg-gray-50 rounded-lg">
-              <div className="h-4 w-4 border-2 border-blue-200 rounded flex items-center justify-center">
-                <svg className="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg>
+            <div key={idx} className="flex items-center space-x-3 text-xs text-[#6B7280] p-2 bg-[#F9FAFB] rounded-lg border border-[#E5E7EB]">
+              <div className="h-4 w-4 border-2 border-[#DCFCE7] bg-[#DCFCE7] rounded flex items-center justify-center shadow-sm">
+                <svg className="w-3 h-3 text-[#16A34A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="4" d="M5 13l4 4L19 7" /></svg>
               </div>
               <span>{item}</span>
             </div>
